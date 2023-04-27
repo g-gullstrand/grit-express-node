@@ -30,8 +30,6 @@ router.post('/posts', async (req, res) => {
         const content = req.body.content;
         const post = new Post({title, content})
         await post.create();
-        // console.log('post created')
-        // console.log(post)
 
         res.redirect('/posts')
     } catch (err) {
