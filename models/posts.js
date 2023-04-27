@@ -2,9 +2,10 @@ const db = require('./../db_connection');
 
 class Post {
 
-    constructor({id, title, content}) {
+    constructor({id, title, slug, content}) {
         this.id = id;
         this.title = title;
+        this.slug = slug;
         this.content = content;
     }
 
@@ -49,7 +50,8 @@ class Post {
             VALUES
                 (?, ?, ?, ?)
             `;
-            const values = [1, 'slug-slug-slug', this.title, this.content]
+
+            const values = [1, this.slug, this.title, this.content]
 
             var self = this;
             //const = await db.query(sql, values);
